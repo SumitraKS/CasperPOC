@@ -1,5 +1,9 @@
 var url = 'http://www.helpscout.net/blog/functional-testing-casperjs/';
-casper.start(url);
+casper.test.begin('Page 2', function suite(test) {
+	casper.start(url);
+	casper.then(function() {
+	this.test.assertHttpStatus(200, 'POC Site');
+});
 casper.then(function() {
 	this.test.assertExists(".lead", "Link1 1");
 });
