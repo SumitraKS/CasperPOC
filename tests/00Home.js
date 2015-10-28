@@ -1,7 +1,8 @@
 var x = require('casper').selectXPath;
 var url = 'http://localhost:8081/TableauProject/index.jsp';
-casper.start(url);
-casper.then(function() {
+casper.test.begin('Startup page', function suite(test) {
+	casper.start(url);
+	casper.then(function() {
 	this.test.assertHttpStatus(200, 'POC Site');
 });
 casper.then(function() {
@@ -61,3 +62,4 @@ casper.then(function () {
 casper.run(function(){ 
    this.test.done(); 
 }); 
+});
