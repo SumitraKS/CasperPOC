@@ -1,5 +1,9 @@
 var url = 'http://www.w3schools.com';
-casper.start(url);
+casper.test.begin('Page 1', function suite(test) {
+	casper.start(url);
+	casper.then(function() {
+	this.test.assertHttpStatus(200, 'POC Site');
+});
 casper.then(function() {
 	this.test.assertExists(".w3-row:nth-child(1) h1", "Heading 1");
 });
